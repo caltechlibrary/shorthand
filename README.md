@@ -1,6 +1,5 @@
 
-[![Go Report Card](http://goreportcard.com/badge/rsdoiel/shorthand)](http://goreportcard.com/report/rsdoiel/shorthand)
-[![License](https://img.shields.io/badge/License-BSD%202--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause)
+[![Go Report Card](http://goreportcard.com/badge/caltechlibrary/shorthand)](http://goreportcard.com/report/caltechlibrary/shorthand)
 
 # shorthand
 
@@ -18,9 +17,9 @@ options.
 ```shell
     shorthand --help
 ```
-Source code can be found at [github.com/rsdoiel/shorthand](https://github.com/rsdoiel/shorthand)
+Source code can be found at [github.com/caltechlibrary/shorthand](https://github.com/caltechlibrary/shorthand)
 
-The project website is [rsdoiel.github.io/shorthand](http://rsdoiel.github.io/shorthand)
+The project website is [caltechlibrary.github.io/shorthand](http://caltechlibrary.github.io/shorthand)
 
 
 ## Tutorial
@@ -99,7 +98,7 @@ That makes the command line a little shorter
 _shorthand_ can be installed with the *go get* command.
 
 ```
-    go get github.com/rsdoiel/shorthand/...
+    go get github.com/caltechlibrary/shorthand/...
 ```
 
 

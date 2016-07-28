@@ -6,8 +6,7 @@ and markdown documents for content.
 Reading shorthand version, copyright and build dates.
 @start :bash: date
 @version :bash: echo -n "$(shorthand --version)"
-{{nav}} :import-markdown: nav.md
-{{copyright}} :import-markdown: copyright.md
+{{navContent}} :import-markdown: nav.md
 {{sitebuilt}} :expand: @version, @start
 
 Reading in title and content for index.html...

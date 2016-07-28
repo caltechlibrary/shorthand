@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{pageTitle}}</title>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet" />
-<head>
+    <title>Caltech Library's Digital Library Development Sandbox</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 <body>
-    <header>
-        <h1>{{pageTitle}}</h1>
-    </header>
-    <section>{{pageContent}}</section>
-    <nav>{{nav}}</nav>
-    <footer>
-    {{sitebuilt}}<p>{{copyright}}
-    </footer>
+<header>
+<a href="/"><img src="/assets/orangebooks-logo.png" alt="Caltech Library logo"></a>
+<h1>Caltech Library</h1>
+<h2>{{pageTitle}}</h2>
+</header>
+<nav>
+{{navContent}}
+</nav>
+
+<section>
+{{pageContent}}
+</section>
+
+<footer>
+<span><h1><A href="http://caltech.edu">Caltech</a></h1></span>
+<span>&copy; 2015 <a href="http://library.caltech.edu/CLS_Copyright.htm">Caltech library</a></span>
+<address>1200 E California Blvd, Mail Code 1-32, Pasadena, CA 91125-3200</address> 
+<span>Phone: <a href="tel:+1-626-395-3405">(626)395-3405</a></span>
+<span><a href="mailto:library@caltech.edu">Email Us</a></span>
+<a class="cl-hide" href="sitemap.xml">Site Map</a>
+</footer>
 </body>
 </html>
