@@ -93,6 +93,12 @@ nav div h2 {
      font-style: normal;
 }
 
+nav div > ul {
+     display: none;
+     padding-left: 0.24em;
+     text-align: left;
+}
+
 nav ul {
      display: inline-block;
      padding-left: 0.24em;
@@ -102,10 +108,9 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
-    padding: 1em;
+     display: inline;
+     padding: 1em;
 }
-
 
 section {
      position: relative;
