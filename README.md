@@ -1,6 +1,4 @@
 
-[![Go Report Card](http://goreportcard.com/badge/caltechlibrary/shorthand)](http://goreportcard.com/report/caltechlibrary/shorthand)
-
 # shorthand
 
 A simple label expander and markdown utility
