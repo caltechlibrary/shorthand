@@ -28,8 +28,8 @@ import (
 	"path"
 	"path/filepath"
 
-	// my packages
-	shorthand "github.com/rsdoiel/shorthand"
+	// Caltech Library packages
+	shorthand "github.com/caltechlibrary/shorthand"
 )
 
 type expressionList []string
