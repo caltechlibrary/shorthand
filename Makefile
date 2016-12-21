@@ -1,19 +1,20 @@
 #
 # Shorthand a text label expander.
 #
-# @author R. S. Doiel, <rsdoiel@gmail.com>
-# copyright (c) 2015 all rights reserved.
-# Released under the BSD 2-Clause license
-# See: http://opensource.org/licenses/BSD-2-Clause
-#
+PROJECT = shorthand
+
+VERSION = $(shell grep 'Version = ' $(PROJECT).go | cut -d \" -f 2)
+
+BRANCH = $(shell git branch | grep '* ' | cut -d\  -f 2)
+
 build:
-	go build -o bin/shorthand cmds/shorthand/shorthand.go
-	shorthand build.shorthand
+	go build -o bin/$(PROJECT) cmds/$(PROJECT)/$(PROJECT).go
+	$(PROJECT) build.shorthand
 
 lint:
-	gofmt -w shorthand.go && golint shorthand.go
-	gofmt -w shorthand_test.go && golint shorthand_test.go
-	gofmt -w cmds/shorthand/shorthand.go && golint cmds/shorthand/shorthand.go
+	gofmt -w $(PROJECT).go && golint $(PROJECT).go
+	gofmt -w $(PROJECT)_test.go && golint $(PROJECT)_test.go
+	gofmt -w cmds/$(PROJECT)/$(PROJECT).go && golint cmds/$(PROJECT)/$(PROJECT).go
 
 test:
 	go test
@@ -21,16 +22,20 @@ test:
 clean:
 	if [ -d bin ]; then /bin/rm -fR bin; fi
 	if [ -d dist ]; then /bin/rm -fR dist; fi
-	if [ -f shorthand-binary-release.zip ]; then /bin/rm shorthand-binary-release.zip; fi
+	if [ -f $(PROJECT)-$(VERSION)-release.zip ]; then /bin/rm $(PROJECT)-$(VERSION)-release.zip; fi
 
 install:
-	GOBIN=$(HOME)/bin go install cmds/shorthand/shorthand.go
+	GOBIN=$(HOME)/bin go install cmds/$(PROJECT)/$(PROJECT).go
 
 uninstall:
-	if [ -f $(GOBIN)/shorthand ]; then /bin/rm $(GOBIN)/shorthand; fi
+	if [ -f $(GOBIN)/$(PROJECT) ]; then /bin/rm $(GOBIN)/$(PROJECT); fi
 
 doc:
-	shorthand build.shorthand
+	$(PROJECT) build.shorthand
+
+save:
+	git commit -am "Quick Save"
+	git push origin $(BRANCH)
 
 release:
 	./mk-release.sh
