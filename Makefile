@@ -13,6 +13,7 @@ build:
 website:
 	$(PROJECT) build.shorthand
 	git add index.html install.html license.html
+	git add how-to-shorthand.md how-to-shorthand.html
 	git add shorthand.md shorthand.html
 
 lint:

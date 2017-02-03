@@ -23,29 +23,7 @@
 </nav>
 
 <section>
-<p>USAGE shorthand [options] [FILES_TO_PROCESS]</p>
-
-<p>shorthand is a command line utility to expand labels based on their
-assigned definitions. The render output is the transformed text
-and without the shorthand definitions themselves. %!s(MISSING) reads
-from standard input and writes to standard output.</p>
-
-<p>OPTIONS</p>
-
-<pre><code>-e      The shorthand notation(s) you wish at add
--h      Display this help document
--help       Display this help document
--m      Run final output through markdown processor
--markdown       Run final output through markdown processor
--n      Turn off the prompt for interactive processing
--p      Output a prompt for interactive processing
--v      Version information
--version        Version information
-</code></pre>
-
-<p>HOW IT WORKS</p>
-
-<p>ASSIGNMENTS AND EXPANSIONS</p>
+<h1>Assignments and Expansions</h1>
 
 <p>Shorthand is a simple label expansion utility. It is based on a simple key value substitution.  It supports this following types of definitions</p>
 
@@ -61,8 +39,9 @@ from standard input and writes to standard output.</p>
 <li>Output all assignment statements to a file</li>
 </ul>
 
-<p><em>shorthand</em> replaces the LABEL with the value assigned to it whereever it is encountered in the text being passed. The assignment statement is
-not written to stdout output.</p>
+<p><em>shorthand</em> replaces the LABEL with the value assigned to it whereever it is encountered in the text being passed.
+Commonlly this might be curly brackes, dollar signs or even at signs.  Doesn&rsquo;t really matter but it needs to be unique
+and cannot be in the pattern of space, colon, string, colon and space.  An assignment statement is not written to stdout output.</p>
 
 <table>
 <thead>
@@ -113,7 +92,7 @@ not written to stdout output.</p>
 <tr>
 <td>:expand:</td>
 <td>Assign an expansion</td>
-<td>{{reportTitle}} :expand: Report: @title for @date</td>
+<td>$reportTitle$ :expand: Report: @title for @date</td>
 </tr>
 
 <tr>
@@ -135,9 +114,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>:import:</td>
-<td>Include a file, procesisng the shorthand</td>
-<td>{{nav}} :import: mynav.shorthand</td>
+<td>:import-expansion:</td>
+<td>Include Expansion</td>
+<td>@nav@ :import-expansion: mynav.html</td>
 </tr>
 
 <tr>
@@ -173,7 +152,7 @@ not written to stdout output.</p>
 <tr>
 <td>:markdown:</td>
 <td>Assign Markdown processed text</td>
-<td>{{div}} :markdown: # My h1 for a Div</td>
+<td>{div} :markdown: # My h1 for a Div</td>
 </tr>
 
 <tr>
@@ -197,7 +176,7 @@ not written to stdout output.</p>
 <tr>
 <td>:import-markdown:</td>
 <td>Include Markdown processed text</td>
-<td>{{nav}} :import-markdown: mynav.md</td>
+<td>$nav$ :import-markdown: mynav.md</td>
 </tr>
 
 <tr>
@@ -209,7 +188,7 @@ not written to stdout output.</p>
 <tr>
 <td>:import-expanded-markdown:</td>
 <td>Include Expanded Markdown processed text</td>
-<td>{{nav}} :import-expanded-markdown: mynav.md</td>
+<td>{nav} :import-expanded-markdown: mynav.md</td>
 </tr>
 
 <tr>
@@ -219,9 +198,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>:export:</td>
-<td>Output a label&rsquo;s value to a file</td>
-<td>{{content}} :export: content.txt</td>
+<td>:export-expansion:</td>
+<td>Output Assigned Expansion</td>
+<td>{{content}} :export-expansion: content.txt</td>
 </tr>
 
 <tr>
@@ -231,9 +210,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>:export-all:</td>
+<td>:export-all-expansions:</td>
 <td>Output all assigned Expansions</td>
-<td>_ :export-all: contents.txt</td>
+<td>_ :export-all-expansions: contents.txt</td>
 </tr>
 
 <tr>
@@ -280,48 +259,35 @@ not written to stdout output.</p>
 </tbody>
 </table>
 
-<p>Notes: Using an underscore as a LABEL means the label will be ignored. There are no guarantees of order when writing values or assignment
-statements to a file.</p>
+<p>Notes: Using an underscore as a LABEL means the label will be ignored. There are no guarantees of order when writing values or assignment statements to a file.</p>
 
-<p>The spaces surrounding &ldquo; :label: &ldquo;, &rdquo; :import-text: &ldquo;, &rdquo; :bash: &ldquo;, &rdquo; :expand: &ldquo;, &rdquo; :export: &ldquo;, etc. are required.</p>
+<p>The spaces surrounding &ldquo; :label: &ldquo;, &rdquo; :import-text: &ldquo;, &rdquo; :bash: &ldquo;, &rdquo; :expand: &ldquo;, &rdquo; :export-expansion: &ldquo;, etc. are required.</p>
 
-<p>EXAMPLE</p>
+<h2>Example</h2>
 
-<p>In this example a file containing the text of pre-amble is assigned to the label @PREAMBLE, the time 3:30 is assigned to the label {{NOW}}.</p>
+<p>In this example a file containing the text of pre-amble is assigned to the label @PREAMBLE, the time 3:30 is assigned to the label @NOW.</p>
 
-<pre><code>{{PREAMBLE}} :import-text: /home/me/preamble.text
-{{NOW}} :label: 3:30
+<pre><code class="language-text">    {{PREAMBLE}} :import-text: /home/me/preamble.text
+    {{NOW}} :label: 3:30
 
-At {{NOW}} I will be reading the {{PREAMBLE}} until everyone falls asleep.
+    At {{NOW}} I will be reading the {{PREAMBLE}} until everyone falls asleep.
 </code></pre>
 
-<p>If the file preamble.txt contained the phrase &ldquo;Hello World&rdquo; (including the quotes but without any carriage return or line feed) the output
-after processing the shorthand would look like -</p>
+<p>If the file preamble.txt contained the phrase &ldquo;Hello World&rdquo; (including the quotes but without any carriage return or line feed) the output after processing the shorthand would look like -</p>
 
-<pre><code>At 3:30 I will be reading the &quot;Hello World&quot; until everyone falls asleep.
+<pre><code class="language-text">
+    At 3:30 I will be reading the &quot;Hello World&quot; until everyone falls asleep.
 </code></pre>
 
-<p>Notice the lines containing the assignments are not included in the output and that no carriage returns or line feeds are added the the
-substituted labels.</p>
+<p>Notice the lines containing the assignments are not included in the output and that no carriage returns or line feeds are added the the substituted labels.
++ Assign shorthand expansions to a LABEL
+    + LABEL :expand: SHORTHAND_TO_BE_EXPANDED
+    + @content@ :expand: @report_name@ @report_date@
+        + this would concatenate report name and date</p>
 
-<ul>
-<li>Assign shorthand expansions to a LABEL
+<h3>Processing Markdown pages</h3>
 
-<ul>
-<li>LABEL :expand: SHORTHAND_TO_BE_EXPANDED</li>
-<li>@content@ :expand: @report_name@ @report_date@
-
-<ul>
-<li>this would concatenate report name and date</li>
-</ul></li>
-</ul></li>
-</ul>
-
-<p>PROCESSING MARKDOWN PAGES</p>
-
-<p><em>shorthand</em> also provides a markdown processor. It uses the <a href="https://github.com/russross/blackfriday">blackfriday</a> markdown library.
-This is both a convience and also allows you to treat markdown with shorthand assignments as a template that renders HTML or HTML with
-shorthand ready for expansion. It is a poorman&rsquo;s text rendering engine.</p>
+<p><em>shorthand</em> also provides a markdown processor. It uses the <a href="https://github.com/russross/blackfriday">blackfriday</a> markdown library. This is both a convience and also allows you to treat markdown with shorthand assignments as a template that renders HTML or HTML with shorthand ready for expansion. It is a poorman&rsquo;s text rendering engine.</p>
 
 <p>In this example we&rsquo;ll build a HTML page with shorthand labels from markdown text. Then
 we will use the render HTML as a template for a blog page entry.</p>
@@ -329,17 +295,21 @@ we will use the render HTML as a template for a blog page entry.</p>
 <p>Our markdown file serving as a template will be call &ldquo;post-template.md&rdquo;. It should contain
 the outline of the structure of the page plus some shorthand labels we&rsquo;ll expand later.</p>
 
-<pre><code># @blogTitle
+<pre><code class="language-markdown">
+    # @blogTitle
 
-## @pageTitle
+    ## @pageTitle
 
-### @dateString
+    ### @dateString
 
-@contentBlocks
+    @contentBlocks
+
 </code></pre>
 
-<p>For the purposes of this exercise we&rsquo;ll use <em>shorthand</em> as a repl and just enter the assignments sequencly.  Also rather than use
-the output of shorthand directly we&rsquo;ll build up the content for the page in a label and use shorthand itself to write the final page out.</p>
+<p>For the purposes of this exercise we&rsquo;ll use <em>shorthand</em> as a repl and just enter the
+assignments sequencly.  Also rather than use the output of shorthand directly we&rsquo;ll
+build up the content for the page in a label and use shorthand itself to write the final
+page out.</p>
 
 <p>The steps we&rsquo;ll follow will be to</p>
 
@@ -352,32 +322,26 @@ the output of shorthand directly we&rsquo;ll build up the content for the page i
 
 <p>Start the repl with this version of the shorthand command:</p>
 
-<pre><code>shorthand -p &quot;? &quot;
+<pre><code class="language-shell">    shorthand -p &quot;? &quot;
 </code></pre>
 
-<p>The <em>-p</em> option tells <em>shorthand</em> to use the value &ldquo;? &rdquo; as the prompt. When <em>shorthand</em> starts it will display &ldquo;? &rdquo; to indicate it is
-ready for an assignment or expansion.</p>
+<p>The <em>-p</em> option tells <em>shorthand</em> to use the value &ldquo;? &rdquo; as the prompt. When <em>shorthand</em> starts
+it will display &ldquo;? &rdquo; to indicate it is ready for an assignment or expansion.</p>
 
 <p>The following assumes you are in the <em>shorthand</em> repl.</p>
 
 <p>Load the mardkown file and transform it into HTML with embedded shorthand labels</p>
 
-<pre><code>@doctype :bash: echo &quot;&lt;!DOCTYPE html&gt;&quot;
-@headBlock :label: &lt;head&gt;&lt;title&gt;@pageTitle&lt;/title&gt;
-@pageTemplate :import-markdown: post-template.md
-@dateString :bash: date
-@blogTitle :label:  My Blog
-@pageTitle :label A Post
-@contentBlock :import-markdown: a-post.md
-@output :expand-expansion: @doctype&lt;html&gt;@headBlock&lt;body&gt;@pageTemplate&lt;/body&gt;&lt;/html&gt;
-@output :export: post.html
+<pre><code class="language-shell">    @doctype :bash: echo &quot;&lt;!DOCTYPE html&gt;&quot;
+    @headBlock :label: &lt;head&gt;&lt;title&gt;@pageTitle&lt;/title&gt;
+    @pageTemplate :import-markdown: post-template.md
+    @dateString :bash: date
+    @blogTitle :label:  My Blog
+    @pageTitle :label A Post
+    @contentBlock :import-markdown: a-post.md
+    @output :expand-expansion: @doctype&lt;html&gt;@headBlock&lt;body&gt;@pageTemplate&lt;/body&gt;&lt;/html&gt;
+    @output :export-expansion: post.html
 </code></pre>
-
-<p>Version: v0.0.9</p>
-
-<p>copyright &copy; 2015 all rights reserved.
-Released under the BSD 2-Clause license.
-See: <a href="http://opensource.org/licenses/BSD-2-Clause">http://opensource.org/licenses/BSD-2-Clause</a></p>
 
 </section>
 
