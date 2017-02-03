@@ -17,6 +17,14 @@ Reading in template and writing out index.html
 HTML :import: page.shorthand
 HTML :export: index.html
 
+Setting up title and content for how-to-shorthand.html...
+{{pageTitle}} :label: Shorthand - the gory details
+{{pageContent}} :import-markdown: how-to-shorthand.md
+
+Reading in template and writing out how-to-shorthand.html
+HTML :import: page.shorthand
+HTML :export: how-to-shorthand.html
+
 Setting up title and content for shorthand.html...
 {{pageTitle}} :label: Shorthand - the gory details
 {{pageContent}} :import-markdown: shorthand.md
