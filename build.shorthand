@@ -25,13 +25,21 @@ Reading in template and writing out shorthand.html
 HTML :import: page.shorthand
 HTML :export: shorthand.html
 
-Reading in title and content for installation.html...
+Reading in title and content for LICENSE...
+{{pageTitle}} :label: Shorthand - License
+{{pageContent}} :import-markdown: LICENSE
+
+Reading in template and writing out license.html...
+HTML :import: page.shorthand
+HTML :export: license.html
+
+Reading in title and content for install.html...
 {{pageTitle}} :label: Shorthand - installation
 {{pageContent}} :import-markdown: INSTALL.md
 
-Reading in template and writing out installtion.html
+Reading in template and writing out install.html
 HTML :import: page.shorthand
-HTML :export: installation.html
+HTML :export: install.html
 
 Reading in title and content for ideas.html...
 {{pageTitle}} :label: Shorthand - ideas and background
