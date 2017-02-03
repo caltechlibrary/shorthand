@@ -17,42 +17,25 @@ Shorthand is a simple label expansion utility. It is based on a simple key value
 Commonlly this might be curly brackes, dollar signs or even at signs.  Doesn't really matter but it needs to be unique
 and cannot be in the pattern of space, colon, string, colon and space.  An assignment statement is not written to stdout output.
 
-operator                    | meaning                                  | example
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :label:                    | Assign String                            | {{name}} :label: Freda
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :import-text:              | Assign the contents of a file            | {{content}} :import-text: myfile.txt
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :import-shorthand:         | Get assignments from a file              | _ :import-shorthand: myfile.shorthand
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :expand:                   | Assign an expansion                      | $reportTitle$ :expand: Report: @title for @date
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :expand-expansion:         | Assign expanded expansion                | {{reportHeading}} :expand-expansion: @reportTitle
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :import-expansion:         | Include Expansion                        | @nav@ :import-expansion: mynav.html
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :bash:                     | Assign Shell output                      | {{date}} :bash: date +%Y-%m-%d
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :expand-and-bash:          | Assign Expand then gete Shell output     | {{entry}} :expand-and-bash: cat header.txt @filename footer.txt
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :markdown:                 | Assign Markdown processed text           | {div} :markdown: # My h1 for a Div
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :expand-markdown:          | Assign Expanded Markdown                 | {{div}} :expand-markdown: Greetings **@name**
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :import-markdown:          | Include Markdown processed text          | $nav$ :import-markdown: mynav.md
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :import-expanded-markdown: | Include Expanded Markdown processed text | {nav} :import-expanded-markdown: mynav.md
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :export-expansion:         | Output Assigned Expansion                | {{content}} :export-expansion: content.txt
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :export-all-expansions:    | Output all assigned Expansions           | _ :export-all-expansions: contents.txt
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :export-label:             | Output Assignment                        | {{content}} :export-label: content.shorthand
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :export-all-labels:        | Output all Assignments                   | _ :export-all-labels: contents.shorthand
-----------------------------|------------------------------------------|---------------------------------------------------------------------
- :exit:                     | Exit the shorthand repl                  | :exit:
-----------------------------|------------------------------------------|---------------------------------------------------------------------
+| operator                  | meaning                                  | example                                                         |
+|---------------------------|------------------------------------------|-----------------------------------------------------------------|
+| :label:                   | Assign String                            | {{name}} :label: Freda                                          |
+| :import-text:             | Assign the contents of a file            | {{content}} :import-text: myfile.txt                            |
+| :import-shorthand:        | Get assignments from a file              | _ :import-shorthand: myfile.shorthand                           |
+| :expand:                  | Assign an expansion                      | $reportTitle$ :expand: Report: @title for @date                 |
+| :expand-expansion:        | Assign expanded expansion                | {{reportHeading}} :expand-expansion: @reportTitle               |
+| :import-expansion:        | Include Expansion                        | @nav@ :import-expansion: mynav.html                             |
+| :bash:                    | Assign Shell output                      | {{date}} :bash: date +%Y-%m-%d                                  |
+|:expand-and-bash:          | Assign Expand then gete Shell output     | {{entry}} :expand-and-bash: cat header.txt @filename footer.txt |
+|:markdown:                 | Assign Markdown processed text           | {div} :markdown: # My h1 for a Div                              |
+|:expand-markdown:          | Assign Expanded Markdown                 | {{div}} :expand-markdown: Greetings **@name**                   |
+|:import-markdown:          | Include Markdown processed text          | $nav$ :import-markdown: mynav.md                                |
+|:import-expanded-markdown: | Include Expanded Markdown processed text | {nav} :import-expanded-markdown: mynav.md                       |
+|:export-expansion:         | Output Assigned Expansion                | {{content}} :export-expansion: content.txt                      |
+|:export-all-expansions:    | Output all assigned Expansions           | _ :export-all-expansions: contents.txt                          |
+|:export-label:             | Output Assignment                        | {{content}} :export-label: content.shorthand                    |
+|:export-all-labels:        | Output all Assignments                   | _ :export-all-labels: contents.shorthand                        |
+|:exit:                     | Exit the shorthand repl                  | :exit:                                                          |
 
 
 
