@@ -63,25 +63,25 @@ shorthand replaces the LABEL with the value assigned to it whereever it is
 encountered in the text being passed. The assignment statement is 
 not written to stdout output.
 
-| operator                  | meaning                                  | example                                                          |
-|---------------------------|------------------------------------------|------------------------------------------------------------------|
-|:label:                    | Assign String                            | {{name}} :label: Freda                                           |
-|:import-text:              | Assign the contents of a file            | {{content}} :import-text: myfile.txt                             |
-|:import-shorthand:         | Get assignments from a file              | _ :import-shorthand: myfile.shorthand                            |
-|:expand:                   | Assign an expansion                      | {{reportTitle}} :expand: Report: @title for @date                |
-|:expand-expansion:         | Assign expanded expansion                | {{reportHeading}} :expand-expansion: @reportTitle                |
-|:import:                   | Include a file, procesisng the shorthand | {{nav}} :import: mynav.shorthand                                 |
-|:bash:                     | Assign Shell output                      | {{date}} :bash: date +%Y-%m-%d                                   |
-|:expand-and-bash:          | Assign Expand then gete Shell output     | {{entry}} :expand-and-bash: cat header.txt @filename footer.txt  |
-|:markdown:                 | Assign Markdown processed text           | {{div}} :markdown: # My h1 for a Div                             |
-|:expand-markdown:          | Assign Expanded Markdown                 | {{div}} :expand-markdown: Greetings **@name**                    |
-|:import-markdown:          | Include Markdown processed text          | {{nav}} :import-markdown: mynav.md                               |
-|:import-expanded-markdown: | Include Expanded Markdown processed text | {{nav}} :import-expanded-markdown: mynav.md                      |
-|:export:                   | Output a label's value to a file         | {{content}} :export: content.txt                                 |
-|:export-all:               | Output all assigned Expansions           | _ :export-all: contents.txt                                      |
-|:export-label:             | Output Assignment                        | {{content}} :export-label: content.shorthand                     |
-|:export-all-labels:        | Output all Assignments                   | _ :export-all-labels: contents.shorthand                         |
-|:exit:                     | Exit the shorthand repl                  | :exit:                                                           |
+| operator                  | meaning                                  | example                                                         |
+|---------------------------|------------------------------------------|-----------------------------------------------------------------|
+|:label:                    | Assign String                            | {{name}} :label: Freda                                          |
+|:import-text:              | Assign the contents of a file            | {{content}} :import-text: myfile.txt                            |
+|:import-shorthand:         | Get assignments from a file              | _ :import-shorthand: myfile.shorthand                           |
+|:expand:                   | Assign an expansion                      | {{reportTitle}} :expand: Report: @title for @date               |
+|:expand-expansion:         | Assign expanded expansion                | {{reportHeading}} :expand-expansion: @reportTitle               |
+|:import:                   | Include a file, procesisng the shorthand | {{nav}} :import: mynav.shorthand                                |
+|:bash:                     | Assign Shell output                      | {{date}} :bash: date +%%Y-%%m-%%d                                  |
+|:expand-and-bash:          | Assign Expand then gete Shell output     | {{entry}} :expand-and-bash: cat header.txt @filename footer.txt |
+|:markdown:                 | Assign Markdown processed text           | {{div}} :markdown: # My h1 for a Div                            |
+|:expand-markdown:          | Assign Expanded Markdown                 | {{div}} :expand-markdown: Greetings **@name**                   |
+|:import-markdown:          | Include Markdown processed text          | {{nav}} :import-markdown: mynav.md                              |
+|:import-expanded-markdown: | Include Expanded Markdown processed text | {{nav}} :import-expanded-markdown: mynav.md                     |
+|:export:                   | Output a label's value to a file         | {{content}} :export: content.txt                                |
+|:export-all:               | Output all assigned Expansions           | _ :export-all: contents.txt                                     |
+|:export-label:             | Output Assignment                        | {{content}} :export-label: content.shorthand                    |
+|:export-all-labels:        | Output all Assignments                   | _ :export-all-labels: contents.shorthand                        |
+|:exit:                     | Exit the shorthand repl                  | :exit:                                                          |
 
 Notes: Using an underscore as a LABEL means the label will be ignored. 
 There are no guarantees of order when writing values or assignment 
@@ -153,6 +153,8 @@ Load the mardkown file and transform it into HTML with embedded shorthand labels
 
 	examples = `
 EXAMPLE
+
+	%s /home/me/preamble.text
 
 In this example a file containing the text of pre-amble is assigned to the 
 label @PREAMBLE, the time 3:30 is assigned to the label {{NOW}}.

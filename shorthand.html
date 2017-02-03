@@ -23,45 +23,36 @@
 </nav>
 
 <section>
-<p>USAGE shorthand [options] [FILES_TO_PROCESS]</p>
+<h1>USAGE</h1>
 
-<p>shorthand is a command line utility to expand labels based on their
-assigned definitions. The render output is the transformed text
-and without the shorthand definitions themselves. %!s(MISSING) reads
-from standard input and writes to standard output.</p>
-
-<p>OPTIONS</p>
-
-<pre><code>-e      The shorthand notation(s) you wish at add
--h      Display this help document
--help       Display this help document
--m      Run final output through markdown processor
--markdown       Run final output through markdown processor
--n      Turn off the prompt for interactive processing
--p      Output a prompt for interactive processing
--v      Version information
--version        Version information
+<pre><code>shorthand [OPTIONS] [FILES_TO_PROCESS]
 </code></pre>
 
-<p>HOW IT WORKS</p>
+<h2>SYNOPSIS</h2>
 
-<p>ASSIGNMENTS AND EXPANSIONS</p>
+<p><em>shorthand</em> is a command line utility to expand labels based on their assigned definitions.
+The render output is the transformed text and without the shorthand definitions
+themselves. <em>shorthand</em> reads from standard input and writes to standard output.</p>
 
-<p>Shorthand is a simple label expansion utility. It is based on a simple key value substitution.  It supports this following types of definitions</p>
+<h3>ASSIGNMENTS AND EXPANSIONS</h3>
+
+<p>Shorthand is a simple label expansion utility. It is based on a simple key
+value substitution.  It supports this following types of definitions</p>
 
 <ul>
 <li>Assign a string to a LABEL</li>
 <li>Assign the contents of a file to a LABEL</li>
 <li>Assign the output of a Bash shell expression to a LABEL</li>
-<li>Assign the output of a shorthand expansion to a LABEL</li>
-<li>Read a file of shorthand assignments and assign any expansions to the LABEL</li>
+<li>Assign the output of a <em>shorthand</em> expansion to a LABEL</li>
+<li>Read a file of <em>shorthand</em> assignments and assign any expansions to the LABEL</li>
 <li>Output a LABEL value to a file</li>
 <li>Output all LABEL values to a file</li>
 <li>Output a LABEL assignment statement to a file</li>
 <li>Output all assignment statements to a file</li>
 </ul>
 
-<p><em>shorthand</em> replaces the LABEL with the value assigned to it whereever it is encountered in the text being passed. The assignment statement is
+<p><em>shorthand</em> replaces the LABEL with the value assigned to it whereever it is
+encountered in the text being passed. The assignment statement is
 not written to stdout output.</p>
 
 <table>
@@ -81,21 +72,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:import-text:</td>
 <td>Assign the contents of a file</td>
 <td>{{content}} :import-text: myfile.txt</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -105,21 +84,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:expand:</td>
 <td>Assign an expansion</td>
 <td>{{reportTitle}} :expand: Report: @title for @date</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -129,21 +96,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:import:</td>
 <td>Include a file, procesisng the shorthand</td>
 <td>{{nav}} :import: mynav.shorthand</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -153,21 +108,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:expand-and-bash:</td>
 <td>Assign Expand then gete Shell output</td>
 <td>{{entry}} :expand-and-bash: cat header.txt @filename footer.txt</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -177,21 +120,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:expand-markdown:</td>
 <td>Assign Expanded Markdown</td>
 <td>{{div}} :expand-markdown: Greetings <strong>@name</strong></td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -201,21 +132,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:import-expanded-markdown:</td>
 <td>Include Expanded Markdown processed text</td>
 <td>{{nav}} :import-expanded-markdown: mynav.md</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -225,21 +144,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:export-all:</td>
 <td>Output all assigned Expansions</td>
 <td>_ :export-all: contents.txt</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -249,21 +156,9 @@ not written to stdout output.</p>
 </tr>
 
 <tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
-
-<tr>
 <td>:export-all-labels:</td>
 <td>Output all Assignments</td>
 <td>_ :export-all-labels: contents.shorthand</td>
-</tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
 </tr>
 
 <tr>
@@ -271,41 +166,124 @@ not written to stdout output.</p>
 <td>Exit the shorthand repl</td>
 <td>:exit:</td>
 </tr>
-
-<tr>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-<td>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</td>
-</tr>
 </tbody>
 </table>
 
-<p>Notes: Using an underscore as a LABEL means the label will be ignored. There are no guarantees of order when writing values or assignment
+<p>Notes: Using an underscore as a LABEL means the label will be ignored.
+There are no guarantees of order when writing values or assignment
 statements to a file.</p>
 
-<p>The spaces surrounding &ldquo; :label: &ldquo;, &rdquo; :import-text: &ldquo;, &rdquo; :bash: &ldquo;, &rdquo; :expand: &ldquo;, &rdquo; :export: &ldquo;, etc. are required.</p>
+<p>The spaces surrounding</p>
 
-<p>EXAMPLE</p>
-
-<p>In this example a file containing the text of pre-amble is assigned to the label @PREAMBLE, the time 3:30 is assigned to the label {{NOW}}.</p>
-
-<pre><code>{{PREAMBLE}} :import-text: /home/me/preamble.text
-{{NOW}} :label: 3:30
-
-At {{NOW}} I will be reading the {{PREAMBLE}} until everyone falls asleep.
+<pre><code>   &quot; :label: &quot;, &quot; :import-text: &quot;, &quot; :bash: &quot;, &quot; :expand: &quot;, &quot; :export: &quot;, etc. 
 </code></pre>
 
-<p>If the file preamble.txt contained the phrase &ldquo;Hello World&rdquo; (including the quotes but without any carriage return or line feed) the output
-after processing the shorthand would look like -</p>
+<p>are required.</p>
 
-<pre><code>At 3:30 I will be reading the &quot;Hello World&quot; until everyone falls asleep.
+<h3>PROCESSING MARKDOWN PAGES</h3>
+
+<p><em>shorthand</em> also provides a markdown processor. It uses the <a href="https://github.com/russross/blackfriday">blackfriday</a>
+markdown library.  This is both a convience and also allows you to treat
+markdown with <em>shorthand</em> assignments as a template that renders HTML or
+HTML with <em>shorthand</em> ready for expansion. It is a poorman&rsquo;s text
+rendering engine.</p>
+
+<p>In this example we&rsquo;ll build a HTML page with <em>shorthand</em> labels from
+markdown text. Then we will use the render HTML as a template for a blog
+page entry.</p>
+
+<p>Our markdown file serving as a template will be call &ldquo;post-template.md&rdquo;. It
+should contain the outline of the structure of the page plus some <em>shorthand</em> labels
+we&rsquo;ll expand later.</p>
+
+<pre><code>    # @blogTitle
+
+    ## @pageTitle
+
+    ### @dateString
+
+    @contentBlocks
 </code></pre>
 
-<p>Notice the lines containing the assignments are not included in the output and that no carriage returns or line feeds are added the the
+<p>For the purposes of this exercise we&rsquo;ll use <em>shorthand</em> as a repl and just enter
+the assignments sequencly.  Also rather than use the output of <em>shorthand</em> directly
+we&rsquo;ll build up the content for the page in a label and use <em>shorthand</em> itself to write
+the final page out.</p>
+
+<p>The steps we&rsquo;ll follow will be to</p>
+
+<ol>
+<li>Read in our markdown file page.md and turn it into an HTML with embedded <em>shorthand</em> labels</li>
+<li>Assign some values to the labels</li>
+<li>Expand the labels in the HTML and assign to a new label</li>
+<li>Write the new label out to are page call &ldquo;page.html&rdquo;</li>
+</ol>
+
+<p>Start the repl with this version of the <em>shorthand</em> command:</p>
+
+<pre><code>    shorthand -p &quot;? &quot;
+</code></pre>
+
+<p>The <em>-p</em> option tells <em>shorthand</em> to use the value &ldquo;? &rdquo; as the prompt. When <em>shorthand</em> starts
+it will display &ldquo;? &rdquo; to indicate it is ready for an assignment or expansion.</p>
+
+<p>The following assumes you are in the <em>shorthand</em> repl.</p>
+
+<p>Load the mardkown file and transform it into HTML with embedded <em>shorthand</em> labels</p>
+
+<pre><code>    @doctype :bash: echo &quot;&lt;!DOCTYPE html&gt;&quot;
+    @headBlock :label: &lt;head&gt;&lt;title&gt;@pageTitle&lt;/title&gt;
+    @pageTemplate :import-markdown: post-template.md
+    @dateString :bash: date
+    @blogTitle :label:  My Blog
+    @pageTitle :label A Post
+    @contentBlock :import-markdown: a-post.md
+    @output :expand-expansion: @doctype&lt;html&gt;@headBlock&lt;body&gt;@pageTemplate&lt;/body&gt;&lt;/html&gt;
+    @output :export: post.html
+</code></pre>
+
+<h2>OPTIONS</h2>
+
+<pre><code>	-e	The shorthand notation(s) you wish at add
+	-h	display help
+	-help	display help
+	-l	display license
+	-license	display license
+	-m	Run final output through markdown processor
+	-markdown	Run final output through markdown processor
+	-n	Turn off the prompt for interactive processing
+	-p	Output a prompt for interactive processing
+	-v	display version
+	-version	display version
+</code></pre>
+
+<h2>EXAMPLE</h2>
+
+<pre><code>	shorthand /home/me/preamble.text
+</code></pre>
+
+<p>In this example a file containing the text of pre-amble is assigned to the
+label @PREAMBLE, the time 3:30 is assigned to the label {{NOW}}.</p>
+
+<pre><code>    {{PREAMBLE}} :import-text: /home/me/preamble.text
+    {{NOW}} :label: 3:30
+
+    At {{NOW}} I will be reading the {{PREAMBLE}} until everyone falls asleep.
+</code></pre>
+
+<p>If the file preamble.txt contained the phrase &ldquo;Hello World&rdquo; (including the
+quotes but without any carriage return or line feed) the output
+after processing the <em>shorthand</em> would look like -</p>
+
+<pre><code>    At 3:30 I will be reading the &quot;Hello World&quot; until everyone falls asleep.
+</code></pre>
+
+<p>Notice the lines containing the assignments are not included in the output and
+that no carriage returns or line feeds are added the the
 substituted labels.</p>
 
 <ul>
-<li>Assign shorthand expansions to a LABEL
+<li>Assign <em>shorthand</em> expansions to a LABEL
 
 <ul>
 <li>LABEL :expand: SHORTHAND_TO_BE_EXPANDED</li>
@@ -316,68 +294,6 @@ substituted labels.</p>
 </ul></li>
 </ul></li>
 </ul>
-
-<p>PROCESSING MARKDOWN PAGES</p>
-
-<p><em>shorthand</em> also provides a markdown processor. It uses the <a href="https://github.com/russross/blackfriday">blackfriday</a> markdown library.
-This is both a convience and also allows you to treat markdown with shorthand assignments as a template that renders HTML or HTML with
-shorthand ready for expansion. It is a poorman&rsquo;s text rendering engine.</p>
-
-<p>In this example we&rsquo;ll build a HTML page with shorthand labels from markdown text. Then
-we will use the render HTML as a template for a blog page entry.</p>
-
-<p>Our markdown file serving as a template will be call &ldquo;post-template.md&rdquo;. It should contain
-the outline of the structure of the page plus some shorthand labels we&rsquo;ll expand later.</p>
-
-<pre><code># @blogTitle
-
-## @pageTitle
-
-### @dateString
-
-@contentBlocks
-</code></pre>
-
-<p>For the purposes of this exercise we&rsquo;ll use <em>shorthand</em> as a repl and just enter the assignments sequencly.  Also rather than use
-the output of shorthand directly we&rsquo;ll build up the content for the page in a label and use shorthand itself to write the final page out.</p>
-
-<p>The steps we&rsquo;ll follow will be to</p>
-
-<ol>
-<li>Read in our markdown file page.md and turn it into an HTML with embedded shorthand labels</li>
-<li>Assign some values to the labels</li>
-<li>Expand the labels in the HTML and assign to a new label</li>
-<li>Write the new label out to are page call &ldquo;page.html&rdquo;</li>
-</ol>
-
-<p>Start the repl with this version of the shorthand command:</p>
-
-<pre><code>shorthand -p &quot;? &quot;
-</code></pre>
-
-<p>The <em>-p</em> option tells <em>shorthand</em> to use the value &ldquo;? &rdquo; as the prompt. When <em>shorthand</em> starts it will display &ldquo;? &rdquo; to indicate it is
-ready for an assignment or expansion.</p>
-
-<p>The following assumes you are in the <em>shorthand</em> repl.</p>
-
-<p>Load the mardkown file and transform it into HTML with embedded shorthand labels</p>
-
-<pre><code>@doctype :bash: echo &quot;&lt;!DOCTYPE html&gt;&quot;
-@headBlock :label: &lt;head&gt;&lt;title&gt;@pageTitle&lt;/title&gt;
-@pageTemplate :import-markdown: post-template.md
-@dateString :bash: date
-@blogTitle :label:  My Blog
-@pageTitle :label A Post
-@contentBlock :import-markdown: a-post.md
-@output :expand-expansion: @doctype&lt;html&gt;@headBlock&lt;body&gt;@pageTemplate&lt;/body&gt;&lt;/html&gt;
-@output :export: post.html
-</code></pre>
-
-<p>Version: v0.0.9</p>
-
-<p>copyright &copy; 2015 all rights reserved.
-Released under the BSD 2-Clause license.
-See: <a href="http://opensource.org/licenses/BSD-2-Clause">http://opensource.org/licenses/BSD-2-Clause</a></p>
 
 </section>
 
